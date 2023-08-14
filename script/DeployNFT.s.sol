@@ -11,7 +11,7 @@ contract DeployNFT is Script {
 
     uint256 public deployerKey;
 
-    function run(string memory _nftName, string memory _nftSymbol) public returns (NFT) {
+    function run() public returns (NFT) {
         if (block.chainid == 31337) {
             deployerKey = DEFAULT_ANVIL_PRIVATE_KEY;
         } else {
@@ -19,7 +19,7 @@ contract DeployNFT is Script {
         }
 
         vm.startBroadcast(deployerKey);
-        NFT nft = new NFT(_nftName, _nftSymbol);
+        NFT nft = new NFT("Boringtoken", "BRN");
         vm.stopBroadcast();
         return nft;
     }
