@@ -9,24 +9,32 @@ contract NFT is ERC721 {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIds;
-    mapping(uint256 => string) private s_tokenURIs; //id => uri (metadata)
+    mapping(uint256 => string) private s_tokenHashes; //id => hash
 
     constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {}
 
     /**
      * @notice Mint a new token
-     * @param _tokenURI metadata uri (ipfs link)
+     * @param _tokenHash metadata uri (ipfs CID hash)
      */
-    function mint(string memory _tokenURI) public returns (uint256) {
+    function mint(string memory _tokenHash) public returns (uint256) {
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();
-        s_tokenURIs[newTokenId] = _tokenURI;
+        s_tokenHashes[newTokenId] = _tokenHash;
         _mint(msg.sender, newTokenId);
         return newTokenId;
     }
 
-    function tokenURI(uint256 _tokenId) public view override returns (string memory) {
-        return s_tokenURIs[_tokenId];
+    /**
+     * @notice Get the metadata uri (ipfs CID hash) of a token
+     * @param _tokenId nft id
+     */
+    function getTokenHash(uint256 _tokenId) public view returns (string memory) {
+        return s_tokenHashes[_tokenId];
+    }
+
+    function createIpfsLink() public view returns (string memory) {
+        return string(abi.encodePacked("https://ipfs.io/ipfs/", getTokenHash(_tokenIds.current())));
     }
 
     function getTokenCounter() public view returns (uint256) {

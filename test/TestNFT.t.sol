@@ -8,7 +8,7 @@ import {NFT} from "../src/NFT.sol";
 contract TestNFT is Test {
     string constant NFT_NAME = "TEST_NAME";
     string constant NFT_SYMBOL = "TEST_SYMBOL";
-    string constant NFT_URI = "TEST_URI";
+    string constant NFT_HASH = "TEST_URI";
     NFT public nft;
     DeployNFT public deployer;
 
@@ -23,13 +23,18 @@ contract TestNFT is Test {
     }
 
     function testMintShouldUpdateTokenUriMapping() external {
-        uint256 tokenId = nft.mint(NFT_URI);
-        assertEq(nft.tokenURI(tokenId), NFT_URI);
+        uint256 tokenId = nft.mint(NFT_HASH);
+        assertEq(nft.getTokenHash(tokenId), NFT_HASH);
     }
 
     function testMintShouldUpdateTokenCounter() external {
         uint256 tokenCounter = nft.getTokenCounter();
-        nft.mint(NFT_URI);
+        nft.mint(NFT_HASH);
         assertEq(nft.getTokenCounter(), tokenCounter + 1);
+    }
+
+    function testCreateIpfsLink() external {
+        nft.mint(NFT_HASH);
+        assertEq(nft.createIpfsLink(), string(abi.encodePacked("https://ipfs.io/ipfs/", NFT_HASH)));
     }
 }
