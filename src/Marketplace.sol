@@ -2,6 +2,7 @@
 pragma solidity 0.8.18;
 
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {console} from "forge-std/Test.sol";
 
 error Marketplace__ItemAlreadyListed(address nftContract, uint256 tokenId);
@@ -12,7 +13,7 @@ error Marketplace__ItemNotListed(address nftContract, uint256 tokenId);
 error Marketplace__NotEnoughEtherSent(uint256 itemPrice, uint256 amountSent);
 error Marketplace__NothingToWithdraw();
 
-contract Marketplace {
+contract Marketplace is Ownable {
     event ItemListed(address indexed nftContract, uint256 indexed tokenId, uint256 price, address indexed seller);
     event ListingCanceled(address indexed nftContract, uint256 indexed tokenId);
     event ListingUpdated(address indexed nftContract, uint256 indexed tokenId, uint256 price);
@@ -119,6 +120,13 @@ contract Marketplace {
         if (_price == 0) revert Marketplace__PriceZero();
         s_listings[_nftContract][_tokenId].price = _price;
         emit ListingUpdated(_nftContract, _tokenId, _price);
+    }
+
+    function withdrawCommission() external onlyOwner {
+        if (s_totalCommission == 0) revert Marketplace__NothingToWithdraw();
+        uint256 commission = s_totalCommission;
+        s_totalCommission = 0;
+        payable(msg.sender).transfer(commission);
     }
 
     function getListing(address _nftContract, uint256 _tokenId) external view returns (uint256, address) {
