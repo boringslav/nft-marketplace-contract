@@ -90,4 +90,16 @@ contract TestMarketplace is Test {
 
         vm.stopPrank();
     }
+
+    function testGetListingShouldReturnTheCorrectListing() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+        marketplace.listItem(address(nft), id, 1 ether);
+
+        (uint256 price, address seller) = marketplace.getListing(address(nft), id);
+        assertEq(price, 1 ether);
+        assertEq(seller, NFT_OWNER);
+        vm.stopPrank();
+    }
 }

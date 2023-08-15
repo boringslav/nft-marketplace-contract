@@ -56,4 +56,9 @@ contract Marketplace {
         s_listings[_nftContract][_tokenId] = Listing({price: _price, seller: msg.sender});
         emit ItemListed(_nftContract, _tokenId, _price, msg.sender);
     }
+
+    function getListing(address _nftContract, uint256 _tokenId) external view returns (uint256, address) {
+        Listing memory listing = s_listings[_nftContract][_tokenId];
+        return (listing.price, listing.seller);
+    }
 }
