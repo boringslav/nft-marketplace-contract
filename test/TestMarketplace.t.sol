@@ -27,6 +27,9 @@ contract TestMarketplace is Test {
     NFT public nft;
     address public NFT_OWNER = makeAddr("nft-owner");
     address public USER = makeAddr("user");
+    uint256 public constant DEFAULT_ANVIL_PRIVATE_KEY =
+        0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80;
+    address public constant DEFAULT_ANVIL_PUBLIC_KEY = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
 
     function setUp() public {
         marketplaceDeployer = new DeployMarketplace();
@@ -254,5 +257,44 @@ contract TestMarketplace is Test {
         vm.expectEmit(true, true, true, false, address(marketplace));
         emit ItemBought(address(nft), id);
         marketplace.buyItem{value: 1 ether}(address(nft), id);
+    }
+
+    function testWithdrawCommissionShouldRevertIfNotOwner() external {
+        vm.startPrank(USER);
+        vm.expectRevert("Ownable: caller is not the owner");
+        marketplace.withdrawCommission();
+        vm.stopPrank();
+    }
+
+    function testWithdrawCommissionShouldResetCommissionBalance() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+        marketplace.listItem(address(nft), id, 1 ether);
+        vm.stopPrank();
+        vm.prank(USER);
+        vm.deal(USER, 1 ether);
+        marketplace.buyItem{value: 1 ether}(address(nft), 1);
+
+        vm.prank(DEFAULT_ANVIL_PUBLIC_KEY);
+        marketplace.withdrawCommission();
+        assertEq(marketplace.s_totalCommission(), 0);
+    }
+
+    function testWithdrawCommisionShouldSendTheCommissionToTheOwner() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+        marketplace.listItem(address(nft), id, 1 ether);
+        vm.stopPrank();
+
+        vm.prank(USER);
+        vm.deal(USER, 1 ether);
+        marketplace.buyItem{value: 1 ether}(address(nft), 1);
+
+        vm.prank(DEFAULT_ANVIL_PUBLIC_KEY);
+        uint256 currentBalance = DEFAULT_ANVIL_PUBLIC_KEY.balance;
+        marketplace.withdrawCommission();
+        assertEq(DEFAULT_ANVIL_PUBLIC_KEY.balance, currentBalance + marketplace.COMMISSION_FEE());
     }
 }

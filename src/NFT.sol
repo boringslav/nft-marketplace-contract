@@ -26,6 +26,7 @@ contract NFT is ERC721 {
     }
 
     /**
+     * TODO uri storage
      * @notice Get the metadata uri (ipfs CID hash) of a token
      * @param _tokenId nft id
      */
