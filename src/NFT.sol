@@ -4,12 +4,13 @@ pragma solidity 0.8.18;
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import {Counters} from "@openzeppelin/contracts/utils/Counters.sol";
+import {console} from "forge-std/Test.sol";
 
-contract NFT is ERC721 {
+contract NFT is ERC721URIStorage {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIds;
-    mapping(uint256 => string) private s_tokenHashes; //id => hash
+    mapping(uint256 => string) public s_tokenHashes; //id => hash
 
     constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {}
 
@@ -30,12 +31,15 @@ contract NFT is ERC721 {
      * @notice Get the metadata uri (ipfs CID hash) of a token
      * @param _tokenId nft id
      */
-    function getTokenHash(uint256 _tokenId) public view returns (string memory) {
-        return s_tokenHashes[_tokenId];
+    function tokenURI(uint256 _tokenId) public view override returns (string memory) {
+        _requireMinted(_tokenId);
+
+        string memory baseURI = _baseURI();
+        return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, s_tokenHashes[_tokenId])) : "";
     }
 
-    function createIpfsLink() public view returns (string memory) {
-        return string(abi.encodePacked("https://ipfs.io/ipfs/", getTokenHash(_tokenIds.current())));
+    function _baseURI() internal pure override returns (string memory) {
+        return "https://ipfs.io/ipfs/";
     }
 
     function getTokenCounter() public view returns (uint256) {
