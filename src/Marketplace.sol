@@ -52,7 +52,7 @@ contract Marketplace {
         isItemApprovedForMarketPlace(_nftContract, _tokenId)
         isItemListed(_nftContract, _tokenId)
     {
-        if (_price > 0) revert Marketplace__PriceZero();
+        if (_price == 0) revert Marketplace__PriceZero();
         s_listings[_nftContract][_tokenId] = Listing({price: _price, seller: msg.sender});
         emit ItemListed(_nftContract, _tokenId, _price, msg.sender);
     }
