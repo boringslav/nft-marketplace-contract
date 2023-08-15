@@ -9,12 +9,14 @@ import {
     Marketplace__NotOwner,
     Marketplace__NotApprovedForMarketplace,
     Marketplace__ItemAlreadyListed,
-    Marketplace__PriceZero
+    Marketplace__PriceZero,
+    Marketplace__ItemNotListed
 } from "../src/Marketplace.sol";
 import {NFT} from "../src/NFT.sol";
 
 contract TestMarketplace is Test {
     event ItemListed(address indexed nftContract, uint256 indexed tokenId, uint256 price, address indexed seller);
+    event ListingCanceled(address indexed nftContract, uint256 indexed tokenId);
 
     Marketplace public marketplace;
     DeployMarketplace public marketplaceDeployer;
@@ -100,6 +102,42 @@ contract TestMarketplace is Test {
         (uint256 price, address seller) = marketplace.getListing(address(nft), id);
         assertEq(price, 1 ether);
         assertEq(seller, NFT_OWNER);
+        vm.stopPrank();
+    }
+
+    function testCancelListingShouldRevertIfIsNotNftOwner() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+        marketplace.listItem(address(nft), id, 1 ether);
+
+        vm.stopPrank();
+
+        vm.startPrank(USER);
+        vm.expectRevert(abi.encodeWithSelector(Marketplace__NotOwner.selector, address(nft), id, USER));
+        marketplace.cancelListing(address(nft), id);
+        vm.stopPrank();
+    }
+
+    function testCancelListingShouldRevertIfItemIsNotListed() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+
+        vm.expectRevert(abi.encodeWithSelector(Marketplace__ItemNotListed.selector, address(nft), id));
+        marketplace.cancelListing(address(nft), id);
+        vm.stopPrank();
+    }
+
+    function testCancelListingShouldEmitAnEventWhenAnItemIsCanceled() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+        marketplace.listItem(address(nft), id, 1 ether);
+
+        vm.expectEmit(true, true, true, false, address(marketplace));
+        emit ListingCanceled(address(nft), id);
+        marketplace.cancelListing(address(nft), id);
         vm.stopPrank();
     }
 }
