@@ -10,7 +10,8 @@ import {
     Marketplace__NotApprovedForMarketplace,
     Marketplace__ItemAlreadyListed,
     Marketplace__PriceZero,
-    Marketplace__ItemNotListed
+    Marketplace__ItemNotListed,
+    Marketplace__NotEnoughEtherSent
 } from "../src/Marketplace.sol";
 import {NFT} from "../src/NFT.sol";
 
@@ -18,6 +19,7 @@ contract TestMarketplace is Test {
     event ItemListed(address indexed nftContract, uint256 indexed tokenId, uint256 price, address indexed seller);
     event ListingCanceled(address indexed nftContract, uint256 indexed tokenId);
     event ListingUpdated(address indexed nftContract, uint256 indexed tokenId, uint256 price);
+    event ItemBought(address indexed nftContract, uint256 indexed tokenId);
 
     Marketplace public marketplace;
     DeployMarketplace public marketplaceDeployer;
@@ -187,5 +189,70 @@ contract TestMarketplace is Test {
         emit ListingUpdated(address(nft), id, 2 ether);
         marketplace.updateListing(address(nft), id, 2 ether);
         vm.stopPrank();
+    }
+
+    function testBuyItemShouldRevertIfItemIsNotListedForSale() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+
+        vm.expectRevert(abi.encodeWithSelector(Marketplace__ItemNotListed.selector, address(nft), id));
+        marketplace.buyItem(address(nft), id);
+        vm.stopPrank();
+    }
+
+    function testBuyItemShouldRevertIfNotEnoughEthSent() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+        marketplace.listItem(address(nft), id, 1 ether);
+        vm.stopPrank();
+
+        vm.startPrank(USER);
+        vm.deal(USER, 1 ether);
+        vm.expectRevert(abi.encodeWithSelector(Marketplace__NotEnoughEtherSent.selector, 1 ether, 0.7 ether));
+        marketplace.buyItem{value: 0.7 ether}(address(nft), id);
+        vm.stopPrank();
+    }
+
+    function testBuyItemShouldUpdateSendTheFundsToTheSeller() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+        marketplace.listItem(address(nft), id, 1 ether);
+        vm.stopPrank();
+
+        vm.prank(USER);
+        vm.deal(USER, 1 ether);
+        marketplace.buyItem{value: 1 ether}(address(nft), id);
+        assertEq(NFT_OWNER.balance, 1 ether - marketplace.COMMISSION_FEE());
+    }
+
+    function testBuyItemShouldChangeTheNftOwner() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+        marketplace.listItem(address(nft), id, 1 ether);
+        vm.stopPrank();
+
+        vm.startPrank(USER);
+        vm.deal(USER, 1 ether);
+        marketplace.buyItem{value: 1 ether}(address(nft), id);
+        assertEq(nft.ownerOf(id), USER);
+        vm.stopPrank();
+    }
+
+    function testBuyItemShouldEmitAnEvent() external {
+        vm.startPrank(NFT_OWNER);
+        uint256 id = nft.mint("TEST_URI");
+        nft.approve(address(marketplace), id);
+        marketplace.listItem(address(nft), id, 1 ether);
+        vm.stopPrank();
+
+        vm.startPrank(USER);
+        vm.deal(USER, 1 ether);
+        vm.expectEmit(true, true, true, false, address(marketplace));
+        emit ItemBought(address(nft), id);
+        marketplace.buyItem{value: 1 ether}(address(nft), id);
     }
 }
