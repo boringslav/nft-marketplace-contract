@@ -12,6 +12,7 @@ error Marketplace__ItemNotListed(address nftContract, uint256 tokenId);
 contract Marketplace {
     event ItemListed(address indexed nftContract, uint256 indexed tokenId, uint256 price, address indexed seller);
     event ListingCanceled(address indexed nftContract, uint256 indexed tokenId);
+    event ListingUpdated(address indexed nftContract, uint256 indexed tokenId, uint256 price);
 
     struct Listing {
         uint256 price;
@@ -77,6 +78,22 @@ contract Marketplace {
     {
         delete s_listings[_nftContract][_tokenId];
         emit ListingCanceled(_nftContract, _tokenId);
+    }
+
+    /**
+     * @notice Update a listing
+     * @param _nftContract nft contract address
+     * @param _tokenId  nft id
+     * @param _price  new nft price
+     */
+    function updateListing(address _nftContract, uint256 _tokenId, uint256 _price)
+        external
+        isOwner(_nftContract, _tokenId)
+        itemNotListed(_nftContract, _tokenId)
+    {
+        if (_price == 0) revert Marketplace__PriceZero();
+        s_listings[_nftContract][_tokenId].price = _price;
+        emit ListingUpdated(_nftContract, _tokenId, _price);
     }
 
     function getListing(address _nftContract, uint256 _tokenId) external view returns (uint256, address) {
