@@ -22,11 +22,6 @@ contract TestNFT is Test {
         assertEq(nft.symbol(), NFT_SYMBOL);
     }
 
-    function testMintShouldUpdateTokenUriMapping() external {
-        uint256 tokenId = nft.mint(NFT_HASH);
-        assertEq(nft.s_tokenHashes(tokenId), NFT_HASH);
-    }
-
     function testTokenUriShouldReturnIpfsLink() external {
         uint256 tokenId = nft.mint(NFT_HASH);
         console.log("tokenURI: %s", nft.tokenURI(tokenId));

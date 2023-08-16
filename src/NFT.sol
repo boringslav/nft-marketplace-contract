@@ -21,21 +21,9 @@ contract NFT is ERC721URIStorage {
     function mint(string memory _tokenHash) public returns (uint256) {
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();
-        s_tokenHashes[newTokenId] = _tokenHash;
         _mint(msg.sender, newTokenId);
+        _setTokenURI(newTokenId, _tokenHash);
         return newTokenId;
-    }
-
-    /**
-     * TODO uri storage
-     * @notice Get the metadata uri (ipfs CID hash) of a token
-     * @param _tokenId nft id
-     */
-    function tokenURI(uint256 _tokenId) public view override returns (string memory) {
-        _requireMinted(_tokenId);
-
-        string memory baseURI = _baseURI();
-        return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, s_tokenHashes[_tokenId])) : "";
     }
 
     function _baseURI() internal pure override returns (string memory) {
