@@ -19,24 +19,19 @@ contract Marketplace is Ownable {
     event ListingUpdated(address indexed nftContract, uint256 indexed tokenId, uint256 price);
     event ItemBought(address indexed nftContract, uint256 indexed tokenId);
 
-    struct Listing {
-        uint256 price;
-        address seller;
-    }
-
     uint256 public constant COMMISSION_FEE = 0.005 ether;
     uint256 public s_totalCommission = 0;
-    mapping(address => mapping(uint256 => Listing)) public s_listings; // nftContract => tokenId => Listing
+    mapping(address => mapping(uint256 => uint256)) public s_listings; // nftContract => tokenId => price
 
     modifier itemListed(address _nftContract, uint256 _tokenId) {
-        Listing memory listing = s_listings[_nftContract][_tokenId];
-        if (listing.price > 0) revert Marketplace__ItemAlreadyListed(_nftContract, _tokenId);
+        uint256 price = s_listings[_nftContract][_tokenId];
+        if (price > 0) revert Marketplace__ItemAlreadyListed(_nftContract, _tokenId);
         _;
     }
 
     modifier itemNotListed(address _nftContract, uint256 _tokenId) {
-        Listing memory listing = s_listings[_nftContract][_tokenId];
-        if (listing.price == 0) revert Marketplace__ItemNotListed(_nftContract, _tokenId);
+        uint256 price = s_listings[_nftContract][_tokenId];
+        if (price == 0) revert Marketplace__ItemNotListed(_nftContract, _tokenId);
         _;
     }
 
@@ -69,7 +64,7 @@ contract Marketplace is Ownable {
         itemListed(_nftContract, _tokenId)
     {
         if (_price == 0) revert Marketplace__PriceZero();
-        s_listings[_nftContract][_tokenId] = Listing({price: _price, seller: msg.sender});
+        s_listings[_nftContract][_tokenId] = _price;
         emit ItemListed(_nftContract, _tokenId, _price, msg.sender);
     }
 
@@ -79,16 +74,17 @@ contract Marketplace is Ownable {
      * @param _tokenId  id of the nft to buy
      */
     function buyItem(address _nftContract, uint256 _tokenId) external payable itemNotListed(_nftContract, _tokenId) {
-        Listing memory listing = s_listings[_nftContract][_tokenId];
-        if (msg.value < listing.price) revert Marketplace__NotEnoughEtherSent(listing.price, msg.value);
-        delete s_listings[_nftContract][_tokenId]; // delete listing
+        uint256 price = s_listings[_nftContract][_tokenId];
+        address seller = IERC721(_nftContract).ownerOf(_tokenId);
 
+        if (msg.value < price) revert Marketplace__NotEnoughEtherSent(price, msg.value);
+        delete s_listings[_nftContract][_tokenId]; // delete listing
         //Transfer NFT to buyer
         IERC721 nftContract = IERC721(_nftContract);
-        nftContract.safeTransferFrom(listing.seller, msg.sender, _tokenId);
+        nftContract.safeTransferFrom(seller, msg.sender, _tokenId);
         // Transfer funds to seller
         s_totalCommission += COMMISSION_FEE;
-        payable(listing.seller).transfer(listing.price - COMMISSION_FEE); // send ether to seller
+        payable(seller).transfer(price - COMMISSION_FEE); // send ether to seller
         emit ItemBought(_nftContract, _tokenId);
     }
 
@@ -118,7 +114,7 @@ contract Marketplace is Ownable {
         itemNotListed(_nftContract, _tokenId)
     {
         if (_price == 0) revert Marketplace__PriceZero();
-        s_listings[_nftContract][_tokenId].price = _price;
+        s_listings[_nftContract][_tokenId] = _price;
         emit ListingUpdated(_nftContract, _tokenId, _price);
     }
 
@@ -130,7 +126,8 @@ contract Marketplace is Ownable {
     }
 
     function getListing(address _nftContract, uint256 _tokenId) external view returns (uint256, address) {
-        Listing memory listing = s_listings[_nftContract][_tokenId];
-        return (listing.price, listing.seller);
+        uint256 price = s_listings[_nftContract][_tokenId];
+        IERC721 nftContract = IERC721(_nftContract);
+        return (price, nftContract.ownerOf(_tokenId));
     }
 }
