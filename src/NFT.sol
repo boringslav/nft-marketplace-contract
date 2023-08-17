@@ -7,6 +7,8 @@ import {Counters} from "@openzeppelin/contracts/utils/Counters.sol";
 import {console} from "forge-std/Test.sol";
 
 contract NFT is ERC721URIStorage {
+    event Minted(address indexed _to, uint256 indexed _tokenId, string _tokenHash);
+
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIds;
@@ -23,6 +25,7 @@ contract NFT is ERC721URIStorage {
         uint256 newTokenId = _tokenIds.current();
         _mint(msg.sender, newTokenId);
         _setTokenURI(newTokenId, _tokenHash);
+        emit Minted(msg.sender, newTokenId, _tokenHash);
         return newTokenId;
     }
 
