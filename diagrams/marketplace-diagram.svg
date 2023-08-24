@@ -1,0 +1,321 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="746pt" height="949pt" viewBox="0.00 0.00 745.87 949">
+<g id="graph0" class="graph" transform="translate(44.29556295434372,909.5637737194347) scale(0.955282936382438)" data-name="G">
+
+<polygon fill="#2e3e56" stroke="none" points="-4,4 -4,-945 741.87,-945 741.87,4 -4,4"/>
+<g id="clust1" class="cluster" data-name="clusterMarketplace">
+
+<path fill="#445773" stroke="#445773" d="M20,-201C20,-201 717.87,-201 717.87,-201 723.87,-201 729.87,-207 729.87,-213 729.87,-213 729.87,-784 729.87,-784 729.87,-790 723.87,-796 717.87,-796 717.87,-796 20,-796 20,-796 14,-796 8,-790 8,-784 8,-784 8,-213 8,-213 8,-207 14,-201 20,-201" style=""/>
+<text text-anchor="middle" x="368.94" y="-779.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">Marketplace</text>
+</g>
+<g id="clust2" class="cluster" data-name="clusterIERC721">
+
+<path fill="#3b4b63" stroke="#e8726d" stroke-dasharray="5,2" d="M461.93,-8C461.93,-8 614.36,-8 614.36,-8 620.36,-8 626.36,-14 626.36,-20 626.36,-20 626.36,-181 626.36,-181 626.36,-187 620.36,-193 614.36,-193 614.36,-193 461.93,-193 461.93,-193 455.93,-193 449.93,-187 449.93,-181 449.93,-181 449.93,-20 449.93,-20 449.93,-14 455.93,-8 461.93,-8" style=""/>
+<text text-anchor="middle" x="538.15" y="-176.4" font-family="Times,serif" font-size="14.00" fill="#f0f0f0" style="">IERC721</text>
+</g>
+<g id="clust3" class="cluster" data-name="cluster_01">
+
+<polygon fill="#2e3e56" stroke="black" points="94.21,-804 94.21,-933 573.15,-933 573.15,-804 94.21,-804" style=""/>
+<text text-anchor="middle" x="333.68" y="-916.4" font-family="Times,serif" font-size="14.00" style="">Legend</text>
+</g>
+<!-- Marketplace.itemListed -->
+<g id="node1" class="node" pointer-events="visible" data-name="Marketplace.itemListed">
+
+<polygon fill="#edad56" stroke="#1bc6a6" stroke-width="3" points="224,-733.54 224,-748.46 190.74,-759 143.69,-759 110.42,-748.46 110.42,-733.54 143.69,-723 190.74,-723 224,-733.54"/>
+<polygon fill="none" stroke="#1bc6a6" stroke-width="3" points="228.01,-730.62 228.01,-751.38 191.36,-763 143.07,-763 106.41,-751.38 106.41,-730.62 143.07,-719 191.36,-719 228.01,-730.62"/>
+<text text-anchor="middle" x="167.21" y="-736.8" font-family="Times,serif" font-size="14.00">itemListed</text>
+</g>
+<!-- Marketplace.Marketplace__ItemAlreadyListed --><g id="edge1" class="edge" data-name="Marketplace.itemListed-&gt;Marketplace.Marketplace__ItemAlreadyListed" data-comment="Marketplace.Marketplace__ItemAlreadyListed">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M229.13,-741.66C271.01,-742.11 328.6,-742.74 382.66,-743.33"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="382.52,-746.82 392.56,-743.43 382.6,-739.82 382.52,-746.82"/>
+</g>
+<g id="node11" class="node" pointer-events="visible" data-name="Marketplace.Marketplace__ItemAlreadyListed">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-745" rx="141.77" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-740.8" font-family="Times,serif" font-size="14.00">Marketplace__ItemAlreadyListed</text>
+</g>
+<!-- Marketplace.itemListed&#45;&gt;Marketplace.Marketplace__ItemAlreadyListed -->
+
+<!-- Marketplace.itemNotListed -->
+<g id="node2" class="node" pointer-events="visible" data-name="Marketplace.itemNotListed">
+
+<polygon fill="#edad56" stroke="#1bc6a6" stroke-width="3" points="239.38,-671.54 239.38,-686.46 197.1,-697 137.32,-697 95.04,-686.46 95.04,-671.54 137.32,-661 197.1,-661 239.38,-671.54"/>
+<polygon fill="none" stroke="#1bc6a6" stroke-width="3" points="243.37,-668.42 243.37,-689.58 197.59,-701 136.83,-701 91.05,-689.58 91.05,-668.42 136.83,-657 197.59,-657 243.37,-668.42"/>
+<text text-anchor="middle" x="167.21" y="-674.8" font-family="Times,serif" font-size="14.00">itemNotListed</text>
+</g>
+<!-- Marketplace.Marketplace__ItemNotListed --><g id="edge2" class="edge" data-name="Marketplace.itemNotListed-&gt;Marketplace.Marketplace__ItemNotListed" data-comment="Marketplace.Marketplace__ItemNotListed">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M244.66,-681.49C289.89,-682.96 348.51,-684.86 401.38,-686.58"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="401.2,-690.08 411.31,-686.91 401.42,-683.08 401.2,-690.08"/>
+</g>
+<g id="node12" class="node" pointer-events="visible" data-name="Marketplace.Marketplace__ItemNotListed">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-691" rx="125.04" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-686.8" font-family="Times,serif" font-size="14.00">Marketplace__ItemNotListed</text>
+</g>
+<!-- Marketplace.itemNotListed&#45;&gt;Marketplace.Marketplace__ItemNotListed -->
+
+<!-- Marketplace.isOwner -->
+<g id="node3" class="node" pointer-events="visible" data-name="Marketplace.isOwner">
+
+<polygon fill="#edad56" stroke="#1bc6a6" stroke-width="3" points="214.45,-547.54 214.45,-562.46 186.78,-573 147.65,-573 119.98,-562.46 119.98,-547.54 147.65,-537 186.78,-537 214.45,-547.54"/>
+<polygon fill="none" stroke="#1bc6a6" stroke-width="3" points="218.43,-544.79 218.43,-565.21 187.51,-577 146.91,-577 115.99,-565.21 115.99,-544.79 146.91,-533 187.51,-533 218.43,-544.79"/>
+<text text-anchor="middle" x="167.21" y="-550.8" font-family="Times,serif" font-size="14.00">isOwner</text>
+</g>
+<!-- Marketplace.IERC721 --><g id="edge3" class="edge" data-name="Marketplace.isOwner-&gt;Marketplace.IERC721" data-comment="Marketplace.IERC721">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M219.89,-548.83C249.46,-544.21 286.85,-536.47 318.42,-524 335.87,-517.11 336.79,-508.39 354.42,-502 393.76,-487.75 440.47,-481.01 476.81,-477.83"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="476.99,-481.32 486.68,-477.05 476.44,-474.35 476.99,-481.32"/>
+</g>
+<g id="node13" class="node" pointer-events="visible" data-name="Marketplace.IERC721">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-475" rx="47.54" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-470.8" font-family="Times,serif" font-size="14.00">IERC721</text>
+</g>
+<!-- Marketplace.isOwner&#45;&gt;Marketplace.IERC721 -->
+
+<!-- Marketplace.Marketplace__NotOwner --><g id="edge5" class="edge" data-name="Marketplace.isOwner-&gt;Marketplace.Marketplace__NotOwner" data-comment="Marketplace.Marketplace__NotOwner">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M219.9,-551.36C272.07,-547.68 354.37,-541.88 422.07,-537.11"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="422.22,-540.61 431.95,-536.41 421.73,-533.63 422.22,-540.61"/>
+</g>
+<g id="node14" class="node" pointer-events="visible" data-name="Marketplace.Marketplace__NotOwner">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-529" rx="109.93" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-524.8" font-family="Times,serif" font-size="14.00">Marketplace__NotOwner</text>
+</g>
+<!-- Marketplace.isOwner&#45;&gt;Marketplace.Marketplace__NotOwner -->
+
+<!-- IERC721.ownerOf --><g id="edge4" class="edge" data-name="Marketplace.isOwner-&gt;IERC721.ownerOf" data-comment="IERC721.ownerOf">
+
+<path fill="none" stroke="white" stroke-width="2" d="M219.68,-558.79C252.85,-558.21 294.16,-551.24 318.42,-524 379.1,-455.86 291.84,-181.39 354.42,-115 386.38,-81.1 440.91,-76.98 482.11,-79.76"/>
+<polygon fill="white" stroke="white" stroke-width="2" points="481.69,-83.24 491.95,-80.61 482.29,-76.26 481.69,-83.24"/>
+</g>
+<g id="node21" class="node" pointer-events="visible" data-name="IERC721.ownerOf">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-88" rx="45.22" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-83.8" font-family="Times,serif" font-size="14.00">ownerOf</text>
+</g>
+<!-- Marketplace.isOwner&#45;&gt;IERC721.ownerOf -->
+
+<!-- Marketplace.isItemApprovedForMarketPlace --><g id="edge6" class="edge" data-name="Marketplace.isItemApprovedForMarketPlace-&gt;Marketplace.IERC721" data-comment="Marketplace.isItemApprovedForMarketPlace">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M293.16,-601.44C302.23,-597.31 310.79,-592.23 318.42,-586 349.89,-560.31 322.24,-526.78 354.42,-502 389.27,-475.16 439.23,-469.33 478.11,-469.7"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="477.97,-473.2 488.06,-469.97 478.16,-466.2 477.97,-473.2"/>
+</g>
+<g id="node4" class="node" pointer-events="visible" data-name="Marketplace.isItemApprovedForMarketPlace">
+
+<polygon fill="#edad56" stroke="#1bc6a6" stroke-width="3" points="314.63,-609.54 314.63,-624.46 228.27,-635 106.15,-635 19.79,-624.46 19.79,-609.54 106.15,-599 228.27,-599 314.63,-609.54"/>
+<polygon fill="none" stroke="#1bc6a6" stroke-width="3" points="318.64,-606 318.64,-628 228.52,-639 105.91,-639 15.79,-628 15.79,-606 105.91,-595 228.52,-595 318.64,-606"/>
+<text text-anchor="middle" x="167.21" y="-612.8" font-family="Times,serif" font-size="14.00">isItemApprovedForMarketPlace</text>
+</g>
+<!-- Marketplace.isItemApprovedForMarketPlace&#45;&gt;Marketplace.IERC721 -->
+
+<!-- Marketplace.address --><g id="edge8" class="edge" data-name="Marketplace.isItemApprovedForMarketPlace-&gt;Marketplace.address" data-comment="Marketplace.address">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M282.67,-600.15C349.82,-593.06 431.5,-585.99 483.9,-582.99"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="484.06,-586.49 493.86,-582.47 483.69,-579.5 484.06,-586.49"/>
+</g>
+<g id="node15" class="node" pointer-events="visible" data-name="Marketplace.address">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-583" rx="40" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-578.8" font-family="Times,serif" font-size="14.00">address</text>
+</g>
+<!-- Marketplace.isItemApprovedForMarketPlace&#45;&gt;Marketplace.address -->
+
+<!-- Marketplace.isItemApprovedForMarketPlace&#45;&gt;Marketplace.address -->
+<g id="edge10" class="edge" data-name="Marketplace.isItemApprovedForMarketPlace-&gt;Marketplace.address">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M320.14,-609.65C379.95,-604.49 444.47,-597.92 487.47,-592.36"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="487.93,-595.83 497.37,-591.04 487,-588.9 487.93,-595.83"/>
+</g>
+<!-- Marketplace.Marketplace__NotApprovedForMarketplace --><g id="edge9" class="edge" data-name="Marketplace.isItemApprovedForMarketPlace-&gt;Marketplace.Marketplace__NotApprovedForMarketplace" data-comment="Marketplace.Marketplace__NotApprovedForMarketplace">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M320.14,-625.24C333.38,-625.95 346.86,-626.68 360.28,-627.41"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="359.93,-630.9 370.1,-627.94 360.31,-623.91 359.93,-630.9"/>
+</g>
+<g id="node16" class="node" pointer-events="visible" data-name="Marketplace.Marketplace__NotApprovedForMarketplace">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-637" rx="183.95" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-632.8" font-family="Times,serif" font-size="14.00">Marketplace__NotApprovedForMarketplace</text>
+</g>
+<!-- Marketplace.isItemApprovedForMarketPlace&#45;&gt;Marketplace.Marketplace__NotApprovedForMarketplace -->
+
+<!-- IERC721.getApproved --><g id="edge7" class="edge" data-name="Marketplace.isItemApprovedForMarketPlace-&gt;IERC721.getApproved" data-comment="IERC721.getApproved">
+
+<path fill="none" stroke="white" stroke-width="2" d="M298.58,-602.12C305.93,-597.76 312.65,-592.45 318.42,-586 376.3,-521.3 299.48,-264.21 354.42,-197 380.61,-164.97 424.73,-151.1 463.06,-145.3"/>
+<polygon fill="white" stroke="white" stroke-width="2" points="463.34,-148.79 472.8,-144.02 462.43,-141.85 463.34,-148.79"/>
+</g>
+<g id="node22" class="node" pointer-events="visible" data-name="IERC721.getApproved">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-142" rx="61.41" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-137.8" font-family="Times,serif" font-size="14.00">getApproved</text>
+</g>
+<!-- Marketplace.isItemApprovedForMarketPlace&#45;&gt;IERC721.getApproved -->
+
+<!-- Marketplace.listItem -->
+<g id="node5" class="node" pointer-events="visible" data-name="Marketplace.listItem">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="167.21" cy="-281" rx="40.58" ry="18"/>
+<text text-anchor="middle" x="167.21" y="-276.8" font-family="Times,serif" font-size="14.00">listItem</text>
+</g>
+<!-- Marketplace.Marketplace__PriceZero --><g id="edge11" class="edge" data-name="Marketplace.listItem-&gt;Marketplace.Marketplace__PriceZero" data-comment="Marketplace.Marketplace__PriceZero">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M208.05,-276.9C261.06,-271.44 356.79,-261.58 431.39,-253.89"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="431.51,-257.4 441.1,-252.89 430.8,-250.44 431.51,-257.4"/>
+</g>
+<g id="node17" class="node" pointer-events="visible" data-name="Marketplace.Marketplace__PriceZero">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-243" rx="107.04" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-238.8" font-family="Times,serif" font-size="14.00">Marketplace__PriceZero</text>
+</g><!-- Marketplace.buyItem -->
+<!-- Marketplace.listItem&#45;&gt;Marketplace.Marketplace__PriceZero -->
+<!-- Marketplace.buyItem&#45;&gt;Marketplace.IERC721 -->
+<g id="node6" class="node" pointer-events="visible" data-name="Marketplace.buyItem" data-comment="Marketplace.buyItem-&gt;Marketplace.IERC721">
+
+<ellipse fill="#ffbdb9" stroke="brown" stroke-width="3" cx="167.21" cy="-443" rx="43.44" ry="18"/>
+<text text-anchor="middle" x="167.21" y="-438.8" font-family="Times,serif" font-size="14.00">buyItem</text>
+</g><g id="edge12" class="edge" data-name="Marketplace.buyItem-&gt;Marketplace.IERC721">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M211.98,-442.24C279.15,-445.3 407.57,-456.29 481.34,-465.16"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="480.65,-468.6 491,-466.36 481.51,-461.65 480.65,-468.6"/>
+</g>
+<!-- Marketplace.buyItem&#45;&gt;Marketplace.IERC721 -->
+
+<!-- Marketplace.Marketplace__NotEnoughEtherSent -->
+<g id="node18" class="node" pointer-events="visible" data-name="Marketplace.Marketplace__NotEnoughEtherSent">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-421" rx="151.61" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-416.8" font-family="Times,serif" font-size="14.00">Marketplace__NotEnoughEtherSent</text>
+</g>
+<!-- Marketplace.buyItem&#45;&gt;Marketplace.Marketplace__NotEnoughEtherSent --><g id="edge14" class="edge" data-name="Marketplace.buyItem-&gt;Marketplace.IERC721" data-comment="Marketplace.buyItem-&gt;Marketplace.Marketplace__NotEnoughEtherSent">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M208.05,-450.84C272.69,-459.32 400.83,-470.69 476.74,-474.91"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="476.18,-478.39 486.34,-475.41 476.54,-471.4 476.18,-478.39"/>
+</g>
+<g id="edge13" class="edge" data-name="Marketplace.buyItem-&gt;Marketplace.Marketplace__NotEnoughEtherSent">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M211.62,-440.41C254.74,-437.84 323.38,-433.75 386.54,-429.98"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="386.71,-433.48 396.48,-429.39 386.29,-426.49 386.71,-433.48"/>
+</g>
+<!-- Marketplace.payable -->
+<g id="node19" class="node" pointer-events="visible" data-name="Marketplace.payable">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-367" rx="41.13" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-362.8" font-family="Times,serif" font-size="14.00">payable</text>
+</g>
+<!-- Marketplace.buyItem&#45;&gt;Marketplace.payable -->
+<g id="edge16" class="edge" data-name="Marketplace.buyItem-&gt;Marketplace.payable">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M211.43,-439.51C242.08,-436.02 283.75,-429.18 318.42,-416 335.95,-409.34 336.79,-400.39 354.42,-394 396.09,-378.9 446.03,-372.24 483.16,-369.3"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="482.97,-372.82 492.7,-368.62 482.48,-365.84 482.97,-372.82"/>
+</g>
+<!-- IERC721.safeTransferFrom -->
+<g id="node23" class="node" pointer-events="visible" data-name="IERC721.safeTransferFrom">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-34" rx="80.43" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-29.8" font-family="Times,serif" font-size="14.00">safeTransferFrom</text>
+</g>
+<!-- Marketplace.buyItem&#45;&gt;IERC721.safeTransferFrom -->
+<g id="edge15" class="edge" data-name="Marketplace.buyItem-&gt;IERC721.safeTransferFrom">
+
+<path fill="none" stroke="white" stroke-width="2" d="M210.6,-447.96C244.8,-449.39 291.51,-445.06 318.42,-416 372.3,-357.82 299.65,-118.33 354.42,-61 379.28,-34.98 417.46,-26.58 452.5,-25.36"/>
+<polygon fill="white" stroke="white" stroke-width="2" points="452.25,-28.86 462.21,-25.25 452.17,-21.86 452.25,-28.86"/>
+</g>
+<!-- Marketplace.cancelListing -->
+<g id="node7" class="node" pointer-events="visible" data-name="Marketplace.cancelListing">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="167.21" cy="-389" rx="63.11" ry="18"/>
+<text text-anchor="middle" x="167.21" y="-384.8" font-family="Times,serif" font-size="14.00">cancelListing</text>
+</g>
+<!-- Marketplace.updateListing -->
+<g id="node8" class="node" pointer-events="visible" data-name="Marketplace.updateListing">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="167.21" cy="-227" rx="64.28" ry="18"/>
+<text text-anchor="middle" x="167.21" y="-222.8" font-family="Times,serif" font-size="14.00">updateListing</text>
+</g>
+<!-- Marketplace.updateListing&#45;&gt;Marketplace.Marketplace__PriceZero -->
+<g id="edge17" class="edge" data-name="Marketplace.updateListing-&gt;Marketplace.Marketplace__PriceZero">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M232.05,-229.77C283.67,-232.01 357.72,-235.22 419.94,-237.92"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="419.45,-241.4 429.59,-238.34 419.75,-234.41 419.45,-241.4"/>
+</g>
+<!-- Marketplace.withdrawCommission -->
+<g id="node9" class="node" pointer-events="visible" data-name="Marketplace.withdrawCommission">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="167.21" cy="-335" rx="96.18" ry="18"/>
+<text text-anchor="middle" x="167.21" y="-330.8" font-family="Times,serif" font-size="14.00">withdrawCommission</text>
+</g>
+<!-- Marketplace.withdrawCommission&#45;&gt;Marketplace.payable -->
+<g id="edge19" class="edge" data-name="Marketplace.withdrawCommission-&gt;Marketplace.payable">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M256.58,-342.66C327.33,-348.8 424.26,-357.21 483.69,-362.36"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="483.22,-365.84 493.49,-363.21 483.83,-358.86 483.22,-365.84"/>
+</g>
+<!-- Marketplace.Marketplace__NothingToWithdraw -->
+<g id="node20" class="node" pointer-events="visible" data-name="Marketplace.Marketplace__NothingToWithdraw">
+
+<ellipse fill="#edad56" stroke="#edad56" stroke-width="3" cx="538.15" cy="-313" rx="149.89" ry="18"/>
+<text text-anchor="middle" x="538.15" y="-308.8" font-family="Times,serif" font-size="14.00">Marketplace__NothingToWithdraw</text>
+</g>
+<!-- Marketplace.withdrawCommission&#45;&gt;Marketplace.Marketplace__NothingToWithdraw -->
+<g id="edge18" class="edge" data-name="Marketplace.withdrawCommission-&gt;Marketplace.Marketplace__NothingToWithdraw">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M260.83,-329.48C299.31,-327.18 344.95,-324.46 387.94,-321.9"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="388.09,-325.39 397.86,-321.31 387.67,-318.41 388.09,-325.39"/>
+</g>
+<!-- Marketplace.getListing -->
+<g id="node10" class="node" pointer-events="visible" data-name="Marketplace.getListing">
+
+<ellipse fill="#ffbdb9" stroke="#ffbdb9" stroke-width="3" cx="167.21" cy="-497" rx="50.4" ry="18"/>
+<text text-anchor="middle" x="167.21" y="-492.8" font-family="Times,serif" font-size="14.00">getListing</text>
+</g>
+<!-- Marketplace.getListing&#45;&gt;Marketplace.IERC721 -->
+<g id="edge20" class="edge" data-name="Marketplace.getListing-&gt;Marketplace.IERC721">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M218.35,-494.01C285.59,-490 404.82,-482.89 476.87,-478.59"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="476.95,-482.1 486.73,-478.01 476.54,-475.11 476.95,-482.1"/>
+</g>
+<!-- Marketplace.getListing&#45;&gt;IERC721.ownerOf -->
+<g id="edge21" class="edge" data-name="Marketplace.getListing-&gt;IERC721.ownerOf">
+
+<path fill="none" stroke="white" stroke-width="2" d="M217.26,-502.16C250.66,-502.74 293.22,-497.22 318.42,-470 372.3,-411.82 299.65,-172.33 354.42,-115 386.51,-81.42 440.77,-77.19 481.85,-79.85"/>
+<polygon fill="white" stroke="white" stroke-width="2" points="481.4,-83.33 491.66,-80.68 481.99,-76.35 481.4,-83.33"/>
+</g>
+<!-- key -->
+<g id="node24" class="node" pointer-events="visible" data-name="key">
+
+<polygon fill="#edad56" stroke="none" stroke-width="3" points="232.21,-900 102.21,-900 102.21,-812 232.21,-812 232.21,-900"/>
+<text text-anchor="start" x="151.85" y="-881.4" font-family="Times,serif" font-size="14.00">Internal Call</text>
+<text text-anchor="start" x="147.96" y="-861.4" font-family="Times,serif" font-size="14.00">External Call</text>
+<text text-anchor="start" x="125.42" y="-841.4" font-family="Times,serif" font-size="14.00">Defined Contract</text>
+<text text-anchor="start" x="111.81" y="-821.4" font-family="Times,serif" font-size="14.00">Undefined Contract</text>
+</g>
+<!-- key2 -->
+<g id="node25" class="node" pointer-events="visible" data-name="key2">
+
+<polygon fill="#edad56" stroke="none" stroke-width="3" points="565.15,-900 511.15,-900 511.15,-812 565.15,-812 565.15,-900"/>
+<text text-anchor="start" x="528.15" y="-881.4" font-family="Times,serif" font-size="14.00">   </text>
+<text text-anchor="start" x="528.15" y="-861.4" font-family="Times,serif" font-size="14.00">   </text>
+<polygon fill="#445773" stroke="none" points="526.15,-836 526.15,-856 551.15,-856 551.15,-836 526.15,-836"/>
+<text text-anchor="start" x="528.15" y="-841.4" font-family="Times,serif" font-size="14.00">   </text>
+<polygon fill="none" stroke="#e8726d" points="528.15,-818 528.15,-834 549.15,-834 549.15,-818 528.15,-818"/>
+</g>
+<!-- key&#45;&gt;key2 -->
+<g id="edge22" class="edge" data-name="key-&gt;key2">
+
+<path fill="none" stroke="#1bc6a6" stroke-width="2" d="M225.21,-886C354.09,-886 389.52,-886 512.19,-886"/>
+<polygon fill="#1bc6a6" stroke="#1bc6a6" stroke-width="2" points="512.12,-889.5 522.12,-886 512.12,-882.5 512.12,-889.5"/>
+</g>
+
+<!-- key&#45;&gt;key2 -->
+
+
+<g id="edge23" class="edge" data-name="key-&gt;key2">
+
+<path fill="none" stroke="white" stroke-width="2" d="M225.21,-866C354.09,-866 389.52,-866 512.19,-866"/>
+<polygon fill="white" stroke="white" stroke-width="2" points="512.12,-869.5 522.12,-866 512.12,-862.5 512.12,-869.5"/>
+</g>
+</g>
+</svg>
