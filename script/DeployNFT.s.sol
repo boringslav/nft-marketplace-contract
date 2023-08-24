@@ -19,7 +19,7 @@ contract DeployNFT is Script {
         }
 
         vm.startBroadcast(deployerKey);
-        NFT nft = new NFT("Boringtoken", "BRN");
+        NFT nft = new NFT("NotBoringToken", "NBT");
         vm.stopBroadcast();
         return nft;
     }

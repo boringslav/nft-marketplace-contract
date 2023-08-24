@@ -4,7 +4,6 @@ pragma solidity 0.8.18;
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import {Counters} from "@openzeppelin/contracts/utils/Counters.sol";
-import {console} from "forge-std/Test.sol";
 
 contract NFT is ERC721URIStorage {
     event Minted(address indexed _to, uint256 indexed _tokenId, string _tokenHash);
